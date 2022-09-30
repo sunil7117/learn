@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Coin from "../coin/Coin";
-import { decrement, increment } from "./counterSlice";
+import { decrement, increment, incrementByAmount } from "./counterSlice";
 const Counter = () => {
   const value = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
@@ -27,6 +27,15 @@ const Counter = () => {
         -
       </button>
       <Coin />
+      <button
+        className="btn"
+        aria-label="incresebyamount"
+        onClick={() => {
+          dispatch(incrementByAmount(10));
+        }}
+      >
+        increment by 10
+      </button>
     </div>
   );
 };
